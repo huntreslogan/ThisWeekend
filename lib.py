@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import eventbrite 
+import eventbrite
 import os
 import json
 import jinja2
@@ -34,15 +34,15 @@ def apicall(maxresults = 10, page = 1):
     for i in range(len(events)):
         if "event" in events[i]:
             event = events[i]["event"]
-            
-            row = [event['title'],event['id']]
+
+            row = [event['title'],event['id'],event["status"],event["url"], event['venue']['name']]
             rendered_events.append(row)
 
             print "\n"
             # if "tickets" in event:
             #     tickets = event["tickets"]
             #     for j in range(len(tickets)):
-                    
+
             #         print tickets[j]["ticket"]
             #     #pass
             # # print events[i]["event"]["title"]
