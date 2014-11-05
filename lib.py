@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash, session
 import eventbrite
+import model
 import os
 import json
 import jinja2
@@ -23,10 +24,8 @@ def apicall(maxresults = 10, page = 1):
                       'user_key': os.environ['user_key']}
     client = eventbrite.EventbriteClient(auth_tokens)
 
-    # response = client.event_get({'id':13167758119})
-    # print response
-
-    #response=client.eventsearch({'q':"dance"})
+    # categories=["music", "visual & performing arts", "food & drink", "fashion & beauty", "film, media & entertainment"]
+    # for category in categories:
     response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
     rendered_events = []
     #print response
@@ -35,7 +34,7 @@ def apicall(maxresults = 10, page = 1):
         if "event" in events[i]:
             event = events[i]["event"]
 
-            row = [event['title'],event['id'],event["status"],event["url"], event['venue']['name']]
+            row = [event['title'], event['id'],event["status"],event["url"], event['venue']['name'], event["description"]]
             rendered_events.append(row)
 
             print "\n"
@@ -58,7 +57,9 @@ def apicall(maxresults = 10, page = 1):
 
     return rendered_events
 
-# apicall()
+
+
+
 
 if __name__=="__main__":
     app.run(debug=True)
