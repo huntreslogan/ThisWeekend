@@ -1,12 +1,20 @@
-from flask import Flask 
+from flask import Flask, render_template
 import eventbrite 
 import os
+import json
+import jinja2
 
 app = Flask(__name__)
 
+@app.route("/events")
+def events():
+    # return "<html><script> var eventstring = '" + json.dumps(apicall()) + "';alert(eventstring);</script></html>"
+    return json.dumps(apicall())
+
 @app.route("/")
 def index():
-    return apicall()
+
+    return render_template("index.html")
 
 def apicall(maxresults = 10, page = 1):
     if page > 1:
@@ -20,15 +28,15 @@ def apicall(maxresults = 10, page = 1):
 
     #response=client.eventsearch({'q':"dance"})
     response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
-    rendered_events = ''
+    rendered_events = []
     #print response
     events = response['events']
     for i in range(len(events)):
         if "event" in events[i]:
             event = events[i]["event"]
             
-            row = [event['title'],str(event['id'])]
-            rendered_events += ",".join(row)
+            row = [event['title'],event['id']]
+            rendered_events.append(row)
 
             print "\n"
             # if "tickets" in event:
