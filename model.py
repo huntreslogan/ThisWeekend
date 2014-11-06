@@ -26,12 +26,10 @@ class MusicEvent(Base):
 	__tablename__ = "musicEvents"
 
 	id = Column(Integer,primary_key = True)
-	user_id = Column(Integer, ForeignKey("user.id"))
+	user_id = Column(Integer, ForeignKey("users.id"))
 	title = Column(String(120), nullable = False)
 	venue = Column(String(64), nullable = False)
 	status = Column(String(20), nullable = True)
 	url = Column(String(120))
 	description = Column(String(120))
 
-if __name__ == "__main__":
-    main()

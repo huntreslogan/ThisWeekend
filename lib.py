@@ -30,6 +30,7 @@ def apicall(maxresults = 10, page = 1):
     rendered_events = []
     #print response
     events = response['events']
+
     for i in range(len(events)):
         if "event" in events[i]:
             event = events[i]["event"]
@@ -38,11 +39,12 @@ def apicall(maxresults = 10, page = 1):
             rendered_events.append(row)
 
             print "\n"
-            # if "tickets" in event:
-            #     tickets = event["tickets"]
-            #     for j in range(len(tickets)):
+            if "tickets" in event:
+                tickets = event["tickets"]
+                for j in range(len(tickets)):
 
-            #         print tickets[j]["ticket"]
+                    ticket_list = [tickets[j]["ticket"]]
+                    rendered_events.append(ticket_list)
             #     #pass
             # # print events[i]["event"]["title"]
             # print "\n"
