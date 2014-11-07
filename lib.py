@@ -28,7 +28,7 @@ def apicall(maxresults = 10, page = 1):
     # for category in categories:
     response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
     rendered_events = []
-    #print response
+    print response
     events = response['events']
 
     for i in range(len(events)):
@@ -39,12 +39,12 @@ def apicall(maxresults = 10, page = 1):
             rendered_events.append(row)
 
             print "\n"
-            if "tickets" in event:
-                tickets = event["tickets"]
-                for j in range(len(tickets)):
+            # if "tickets" in event:
+            #     tickets = event["tickets"]
+            #     for j in range(len(tickets)):
 
-                    ticket_list = [tickets[j]["ticket"]]
-                    rendered_events.append(ticket_list)
+                    # ticket_list = [tickets[j]["ticket"]]
+                    # rendered_events.append(ticket_list)
             #     #pass
             # # print events[i]["event"]["title"]
             # print "\n"
