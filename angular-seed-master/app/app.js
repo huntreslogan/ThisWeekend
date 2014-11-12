@@ -15,7 +15,7 @@ myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/events', {
-        templateUrl: 'partials/view1.html',
+        templateUrl: 'partials/eventList.html',
         controller: 'EventListCtrl'
       }).
       when('/events/:eventId', {
