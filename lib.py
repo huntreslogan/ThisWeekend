@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, flash, session
+from flask import Flask, render_template, request, flash, session, jsonify
 import eventbrite
 import model
 import os
 import json
 import jinja2
+from sqlalchemy.orm import class_mapper
 
 app = Flask(__name__)
 
@@ -28,7 +29,7 @@ def apicall(maxresults = 10, page = 1):
     # for category in categories:
     response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
     rendered_events = []
-    print response
+    # print response
     events = response['events']
 
     for i in range(len(events)):
@@ -58,9 +59,29 @@ def apicall(maxresults = 10, page = 1):
                 print "GOT ALL THE STUFF!"
 
     return rendered_events
+def handler(o):
+    if hasattr(o, 'isoformat') and callable(o.isoformat):
+        return o.isoformat()
+    raise TypeError("Can't serialize %r" % (o,))
 
 
+def serialize(model):
+  """Transforms a model into a dictionary which can be dumped to JSON."""
+  # first we get the names of all the columns on your model
+  columns = [c.key for c in class_mapper(model.__class__).columns]
+  # then we return their values in a dict
+  return dict((c, getattr(model, c)) for c in columns)
 
+# we can then use this for your particular example
+
+@app.route("/jsondata")
+def json_my_data():
+    serialized_events = [
+      serialize(event)
+      for event in model.session.query(model.MusicEvent).all()
+    ]
+    your_json = json.dumps(serialized_events, default=handler)
+    return your_json
 
 
 if __name__=="__main__":
