@@ -5,10 +5,8 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
   'eventAnimations',
-
   'eventControllers',
   'eventFilters',
-  'eventServices'
 ]);
 
 myApp.config(['$routeProvider',

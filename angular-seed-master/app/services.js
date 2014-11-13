@@ -1,12 +1,12 @@
-'use strict';
+// 'use strict';
 
-/* Services */
+// /* Services */
 
-var eventServices = angular.module('eventServices', ['ngResource']);
+// var eventServices = angular.module('eventServices', ['ngResource']);
 
-eventServices.factory('Event', ['$resource',
-  function($resource){
-    return $resource('events/:eventId.json', {}, {
-      query: {method:'GET', params:{eventId:'events'}, isArray:true}
-    });
-  }]);
+// eventServices.factory('Event', ['$resource',
+//   function($resource){
+//     return $resource('events/:eventId.json', {}, {
+//       query: {method:'GET', params:{eventId:'events'}, isArray:true}
+//     });
+//   }]);

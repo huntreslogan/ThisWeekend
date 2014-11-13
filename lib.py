@@ -76,7 +76,7 @@ def serialize(model):
 
 # we can then use this for your particular example
 
-@app.route("/jsondata")
+@app.route("/jsondata/events.json")
 def json_my_data():
     serialized_events = [
       serialize(event)
