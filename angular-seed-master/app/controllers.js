@@ -21,6 +21,7 @@ var eventControllers = angular.module('eventControllers', []);
 
 eventControllers.controller('EventListCtrl', ['$scope', '$http',
   function($scope, $http) {
+    console.log("in events controller");
     $http.get('http://localhost:5000/jsondata/events.json').success(function(data) {
       $scope.events = data;
     });
@@ -28,8 +29,15 @@ eventControllers.controller('EventListCtrl', ['$scope', '$http',
     $scope.orderProp = 'title';
   }]);
 
-// phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
-//   function($scope, $routeParams) {
-//     $scope.phoneId = $routeParams.phoneId;
-//   }]);
+eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+    $scope.eventId = $routeParams.eventId;
+    $http.get(
+      'http://localhost:5000/events.json/event/' + $routeParams.eventId
+      ).success(function(data) {
+        console.log(data);
+      });
+  }]);
+
+
 

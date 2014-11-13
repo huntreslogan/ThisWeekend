@@ -10,15 +10,15 @@ from sqlalchemy.orm import class_mapper
 app = Flask(__name__)
 cors = CORS(app)
 
-@app.route("/events")
-def events():
+# @app.route("/events")
+# def events():
     # return "<html><script> var eventstring = '" + json.dumps(apicall()) + "';alert(eventstring);</script></html>"
-    return json.dumps(apicall())
+    # return json.dumps(apicall())
 
-@app.route("/")
-def index():
+# @app.route("/")
+# def index():
 
-    return render_template("index.html")
+#   return render_template("index.html")
 
 # def apicall(maxresults = 10, page = 1):
 #     if page > 1:
@@ -61,10 +61,13 @@ def index():
 #                 print "GOT ALL THE STUFF!"
 
 #     return rendered_events
+
+
 def handler(o):
-    if hasattr(o, 'isoformat') and callable(o.isoformat):
+
+  if hasattr(o, 'isoformat') and callable(o.isoformat):
         return o.isoformat()
-    raise TypeError("Can't serialize %r" % (o,))
+  raise TypeError("Can't serialize %r" % (o,))
 
 
 def serialize(model):
@@ -82,11 +85,21 @@ def json_my_data():
       serialize(event)
       for event in model.session.query(model.MusicEvent).all()
     ]
-    your_json = json.dumps(serialized_events, default=handler)
-    print your_json
-    return your_json
+    events = json.dumps(serialized_events, default=handler)
+    print events
+    return events
+
+@app.route("/events.json/event/<int:id>")
+def gimme_some_deets(id):
+    serialize_event = [
+    serialize(model.session.query(model.MusicEvent).filter_by(id = id).one())
+    ]
+    event = json.dumps(serialize_event, default=handler)
+    print event
+    return event
 
 
 if __name__=="__main__":
     json_my_data()
+    gimme_some_deets(2)
     app.run(debug=True)

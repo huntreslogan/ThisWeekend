@@ -16,9 +16,9 @@ myApp.config(['$routeProvider',
         templateUrl: 'partials/eventList.html',
         controller: 'EventListCtrl'
       }).
-      when('/events/:eventId', {
+      when("/events.json/event/:eventId", {
         templateUrl: 'partials/eventDetails.html',
-        controller: 'PhoneDetailCtrl'
+        controller: 'EventDetailCtrl'
       }).
       otherwise({
         redirectTo: '/events'
