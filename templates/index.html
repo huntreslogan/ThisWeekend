@@ -1,12 +1,47 @@
-<html>
-<body>
-    <h1>Hello World</h1>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>  
-        $.ajax( {
-            url: "/events",
-            success:function(data){console.log(data)}
-        })
-    </script>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>This Weekend App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/static/vendor/normalize.css">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/animations.css">
+  <script src="/static/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body ng-controller="EventListCtrl">
+  <ul class="menu">
+    <li><a href="#/events">Event List</a></li>
+    <!-- <li><a href="#/eventDetails">Event Details</a></li> -->
+  </ul>
+   <ul>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view></div>
+
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+  <script src="/static/vendor/angular.js"></script>
+  <script src="/static/vendor/angular-animate.js"></script>
+  <script src="/static/vendor/angular-route.js"></script>
+
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/controllers.js"></script>
+  <script src="/static/js/animations.js"></script>
+  <script src="/static/js/filters.js"></script>
+
 </body>
 </html>

@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, flash, session, jsonify
-from flask.ext.cors import CORS
-import eventbrite
+# from flask.ext.cors import CORS
+# import eventbrite
 import model
-import os
+# import os
 import json
-import jinja2
+# import jinja2
 from sqlalchemy.orm import class_mapper
 
 app = Flask(__name__)
-cors = CORS(app)
+# cors = CORS(app)
 
 # @app.route("/events")
 # def events():
@@ -79,7 +79,7 @@ def serialize(model):
 
 # we can then use this for your particular example
 
-@app.route("/jsondata/events.json")
+@app.route("/api/events")
 def json_my_data():
     serialized_events = [
       serialize(event)
@@ -89,7 +89,7 @@ def json_my_data():
     print events
     return events
 
-@app.route("/events.json/event/<int:id>")
+@app.route("/api/eventdetail/<int:id>")
 def gimme_some_deets(id):
     serialize_event = [
     serialize(model.session.query(model.MusicEvent).filter_by(id = id).one())
@@ -98,8 +98,12 @@ def gimme_some_deets(id):
     print event
     return event
 
+@app.route('/')
+def index():
+  return render_template('index.html')
+
 
 if __name__=="__main__":
-    json_my_data()
-    gimme_some_deets(2)
+    # json_my_data()
+    # gimme_some_deets(2)
     app.run(debug=True)

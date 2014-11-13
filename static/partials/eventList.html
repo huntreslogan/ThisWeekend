@@ -16,8 +16,8 @@
 
     <ul class="events">
       <li ng-repeat="event in events | filter:query | orderBy:orderProp" class="thumbnail">
-        <a href="http://localhost:5000/events.json/event/{{event.id}}" class="thumb"><img ng-src="{{event.image}}"></a>
-        <a href="http://localhost:5000/events.json/event/{{event.id}}">{{event.title}}</a>
+        <a href="#/eventdetail/{{event.id}}" class="thumb"><img ng-src="/static/images/{{event.image}}"></a>
+        <a href="#/eventdetail/{{event.id}}">{{event.title}}</a>
         <p>{{event.venue}}</p>
       </li>
     </ul>

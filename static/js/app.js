@@ -13,11 +13,11 @@ myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/events', {
-        templateUrl: 'partials/eventList.html',
+        templateUrl: '/static/partials/eventList.html',
         controller: 'EventListCtrl'
       }).
-      when("/events.json/event/:eventId", {
-        templateUrl: 'partials/eventDetails.html',
+      when("/eventdetail/:eventId", {
+        templateUrl: '/static/partials/eventDetails.html',
         controller: 'EventDetailCtrl'
       }).
       otherwise({
