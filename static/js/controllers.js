@@ -36,6 +36,7 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
       '/api/eventdetail/' + $routeParams.eventId
       ).success(function(data) {
         console.log(data);
+        $scope.eventdetail = data;
       });
   }]);
 

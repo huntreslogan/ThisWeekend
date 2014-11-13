@@ -91,9 +91,7 @@ def json_my_data():
 
 @app.route("/api/eventdetail/<int:id>")
 def gimme_some_deets(id):
-    serialize_event = [
-    serialize(model.session.query(model.MusicEvent).filter_by(id = id).one())
-    ]
+    serialize_event = serialize(model.session.query(model.MusicEvent).filter_by(id = id).one())
     event = json.dumps(serialize_event, default=handler)
     print event
     return event
