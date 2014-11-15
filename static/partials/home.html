@@ -1,0 +1,17 @@
+<div>
+  <form novalidate class="css-form">
+
+<b ng-show="wrongpassword">Wrong Password</b>
+
+    Username:
+      <input type="text" ng-model="user.name" required /><br />
+    E-mail:
+      <input type="email" ng-model="user.email" required /><br />
+    Password:
+      <input type="password" ng-model="user.password" required /><br />
+    <button ng-click="reset()">RESET</button>
+    <button ng-click="update(user)">SAVE</button>
+  </form>
+
+  {{ user.name }}
+</div>

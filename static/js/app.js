@@ -12,6 +12,10 @@ var myApp = angular.module('myApp', [
 myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
+      when('/home', {
+        templateUrl: '/static/partials/home.html',
+        controller: 'HomeCtrl',
+      }).
       when('/events', {
         templateUrl: '/static/partials/eventList.html',
         controller: 'EventListCtrl'
@@ -21,7 +25,9 @@ myApp.config(['$routeProvider',
         controller: 'EventDetailCtrl'
       }).
       otherwise({
-        redirectTo: '/events'
+        redirectTo: '/home'
       });
   }]);
+
+
 
