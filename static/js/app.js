@@ -16,6 +16,10 @@ myApp.config(['$routeProvider',
         templateUrl: '/static/partials/home.html',
         controller: 'HomeCtrl',
       }).
+      when('/signup', {
+        templateUrl: '/static/partials/signup.html',
+        controller:'SignupCtrl'
+      }).
       when('/events', {
         templateUrl: '/static/partials/eventList.html',
         controller: 'EventListCtrl'
@@ -27,7 +31,9 @@ myApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/home'
       });
-  }]);
+  }
+]
+);
 
 
 

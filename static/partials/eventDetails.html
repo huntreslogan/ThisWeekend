@@ -1,6 +1,6 @@
 
  <button
-  <div ng-controller="EventListCtrl">
+  <div ng-controller="EventListCtrl as ctrl">
   <ul>
     <li><a href="#/events">Event List</a></li>
     <!-- <li><a href="#/eventDetails">Event Details</a></li> -->
@@ -8,3 +8,4 @@
   <ul>
   </div>
 <h1>{{eventdetail.title}}</h1>
+Date : {{'2015-10-31' | date: 'medium'}}
