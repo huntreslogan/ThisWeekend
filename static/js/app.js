@@ -14,7 +14,7 @@ myApp.config(['$routeProvider',
     $routeProvider.
       when('/home', {
         templateUrl: '/static/partials/home.html',
-        controller: 'HomeCtrl',
+        controller: 'HomeCtrl'
       }).
       when('/signup', {
         templateUrl: '/static/partials/signup.html',

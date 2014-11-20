@@ -101,3 +101,15 @@ h1 {
 .homebtns {
   display: inline-block;
 }
+
+.username.ng-valid {
+ background-color: green;
+}
+
+.username.ng-dirty.ng-invalid-required {
+background-color: red;
+}
+
+.username.ng-dirty.ng-invalid-minlength {
+  background-color: lightpink;
+}

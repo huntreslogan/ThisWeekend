@@ -8,6 +8,8 @@ import json
 from sqlalchemy.orm import class_mapper
 
 app = Flask(__name__)
+app.secret_key = "djakljdfgahgfoahufha"
+
 # cors = CORS(app)
 
 # @app.route("/events")
@@ -86,7 +88,6 @@ def json_my_data():
       for event in model.session.query(model.MusicEvent).all()
     ]
     events = json.dumps(serialized_events, default=handler)
-    print events
     return events
 
 @app.route("/api/eventdetail/<int:id>")
@@ -101,11 +102,27 @@ def index():
   return render_template('index.html')
 
 
-@app.route('/some/path/to/your/flask/login', methods=['POST'])
+@app.route('/submituser', methods=['POST'])
 def login():
-  data = request.data
-  print data
-  return "Yay!"
+    userData = request.data
+    pythonData= json.loads(userData)
+    print pythonData
+    newUser = model.User()
+    username = pythonData['username']
+    print username
+    email = pythonData['email']
+    password = pythonData['password']
+    newUser.username = username
+    newUser.email = email
+    newUser.password = password
+    session['username'] = newUser.username
+    session['email'] = newUser.email
+    session['password'] = newUser.password
+    print session
+    model.session.add(newUser)
+    model.session.commit()
+
+    return "Yay!"
 
 
 if __name__=="__main__":

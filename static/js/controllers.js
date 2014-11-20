@@ -40,31 +40,32 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
       });
   }]);
 
-eventControllers.controller('HomeCtrl', ['$scope', '$http',
+eventControllers.controller('SignupCtrl', ['$scope', '$http',
   function ($scope, $http) {
   console.log("in home");
-  $scope.user = {};
-
+  console.log($scope.user);
   $scope.reset = function (u) {
-    $scope.user = {};
     $scope.user.email = "";
     console.log("huh?");
   };
 
-  $scope.update = function(u) {
-    alert("Hi " + u.name);
-     $http.post('/some/path/to/your/flask/login', u).success(
+  $scope.submit = function(u) {
+    alert("Hi " + u.username);
+    $http.post('/submituser', u).success(
          function(data) {
-         alert("Flask said " + data);
-         $scope.wrongpassword = true;
+         console.log("Flask said " + data);
+         // self.wrongpassword = true;
+
        }
       );
 
   };
 
 
-}]);
+}
 
+]);
 
+eventControllers.controller('HomeCtrl', []);
 
 

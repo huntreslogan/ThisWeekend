@@ -17,9 +17,10 @@ class User(Base):
 	__tablename__ = "users"
 
 	id = Column(Integer, primary_key = True)
+	username = Column(String(64), nullable = True)
 	email = Column(String(64), nullable = True)
 	password = Column(String(64), nullable = True)
-	music_event = relationship("MusicEvent", backref = "users")
+	saved_event = relationship("MusicEvent", backref = "users")
 
 
 
