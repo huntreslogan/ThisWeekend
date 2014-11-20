@@ -103,7 +103,7 @@ def index():
 
 
 @app.route('/submituser', methods=['POST'])
-def login():
+def signup():
     userData = request.data
     pythonData= json.loads(userData)
     print pythonData
@@ -123,6 +123,31 @@ def login():
     model.session.commit()
 
     return "Yay!"
+
+@app.route("/login", methods=["POST"])
+def login():
+    userData = request.data
+    print "userData", userData
+    pythonData = json.loads(userData)
+    print "pythonData", pythonData
+    username = pythonData['username']
+    password = pythonData['password']
+    thisUser = model.session.query(model.User).filter_by(username = username).first()
+    print "thisUser", thisUser
+    if thisUser.password != password:
+      return "Please enter correct password"
+    else:
+      session['username'] = thisUser.username
+      session['id'] = thisUser.id
+      print session
+      return "Thank you for logging in!"
+
+    if thisUser:
+      return "worked" # not a list. Just the user object.
+    else:
+      return "failed"
+    # if thisUser.password == []:
+    #   return "You are not in our records. Please sign up."
 
 
 if __name__=="__main__":

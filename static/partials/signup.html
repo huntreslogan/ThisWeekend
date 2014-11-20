@@ -1,6 +1,6 @@
 <div><a href="#/events"><button class="btn">Event List</button></a></div>
 <div ng-controller = "SignupCtrl">
-	<form novalidate role="form" ng-model="user" ng-submit= 'submit()' name="myForm" ng-submit="submit(user)">
+	<form novalidate role="form" ng-model="user" ng-submit= 'submit(user)' name="myForm">
 		<div class ="form-group">
 			<label for="uname">Username </label>
 			<input class="form-control"
@@ -13,7 +13,7 @@
 		<div class="form-group">
 			<label for="email">Email </label>
 			<input class="form-control"
-			type="email"
+			type="text"
 			name="email"
 			id="email"
 			ng-model="user.email"
@@ -29,7 +29,7 @@
 		</div>
 		<div class="homebtns">
 			<button class="btn" ng-click="reset()">RESET</button>
-			<button class="btn" type="submit" ng-click="submit(user)">SAVE</button>
+			<button class="btn" type="submit">SAVE</button>
 		</div>
 	</form>
 

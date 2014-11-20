@@ -20,6 +20,10 @@ myApp.config(['$routeProvider',
         templateUrl: '/static/partials/signup.html',
         controller:'SignupCtrl'
       }).
+      when('/login', {
+        templateUrl: 'static/partials/login.html',
+        controller: 'LoginCtrl'
+      }).
       when('/events', {
         templateUrl: '/static/partials/eventList.html',
         controller: 'EventListCtrl'

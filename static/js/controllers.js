@@ -43,14 +43,14 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
 eventControllers.controller('SignupCtrl', ['$scope', '$http',
   function ($scope, $http) {
   console.log("in home");
-  console.log($scope.user);
+
   $scope.reset = function (u) {
-    $scope.user.email = "";
+    $scope.user = {};
     console.log("huh?");
   };
 
   $scope.submit = function(u) {
-    alert("Hi " + u.username);
+    alert("Hix " + u.username);
     $http.post('/submituser', u).success(
          function(data) {
          console.log("Flask said " + data);
@@ -68,4 +68,25 @@ eventControllers.controller('SignupCtrl', ['$scope', '$http',
 
 eventControllers.controller('HomeCtrl', []);
 
+eventControllers.controller('LoginCtrl', ['$scope', '$http',
+  function ($scope, $http){
+    console.log('in login');
+
+  $scope.login = function (u) {
+    $http.post('/login', u).success(
+      function(data) {
+        console.log("whatup");
+        alert("Welcome " + u.username);
+        if (data == "Please enter correct password") {
+          alert("Please enter correct password");
+        }else {
+          alert("Thank you for logging in!");
+        }
+      }
+      );
+  };
+
+  }
+
+  ]);
 
