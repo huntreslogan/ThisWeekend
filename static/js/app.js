@@ -7,6 +7,7 @@ var myApp = angular.module('myApp', [
   'eventAnimations',
   'eventControllers',
   'eventFilters',
+  'eventServices'
 ]);
 
 myApp.config(['$routeProvider',

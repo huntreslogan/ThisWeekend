@@ -1,7 +1,7 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy import ForeignKey
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, Table
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.orm import relationship, backref
 
@@ -12,6 +12,10 @@ session = scoped_session(sessionmaker(bind = engine, autocommit = False, autoflu
 Base = declarative_base()
 Base.query = session.query_property()
 
+user_events = Table('user_event_association', Base.metadata,
+    Column('user_id', Integer, ForeignKey('users.id')),
+    Column('event_id', Integer, ForeignKey('events.id'))
+)
 
 class User(Base):
 	__tablename__ = "users"
@@ -20,15 +24,17 @@ class User(Base):
 	username = Column(String(64), nullable = True)
 	email = Column(String(64), nullable = True)
 	password = Column(String(64), nullable = True)
-	saved_event = relationship("MusicEvent", backref = "users")
+
+	events = relationship("Event",
+                    secondary=user_events,
+                    backref=backref("users"))
 
 
-
-class MusicEvent(Base):
-	__tablename__ = "musicEvents"
+class Event(Base):
+	__tablename__ = "events"
 
 	id = Column(Integer,primary_key = True)
-	user_id = Column(Integer, ForeignKey("users.id"))
+	event_type=Column(String(64), nullable = False)
 	city = Column(String(64))
 	title = Column(String(120), nullable = False)
 	date = Column(Date)
@@ -43,20 +49,9 @@ class MusicEvent(Base):
 	table_service = Column(String(10))
 	image = Column(String(64))
 
-class ArtsEvent(Base):
-	__tablename__ = "artsEvents"
+def main(Base):
+    """In case we need this for something"""
+    Base.metadata.create_all(engine)
 
-	id = Column(Integer,primary_key = True)
-	user_id = Column(Integer, ForeignKey("users.id"))
-	city = Column(String(64))
-	title = Column(String(120), nullable = False)
-	date = Column(Date)
-	start_time = Column(String(15))
-	end_time = Column(String(15))
-	venue = Column(String(64), nullable = False)
-	url = Column(String(120))
-	description = Column(String(120))
-	eb_id = Column(Integer)
-	price = Column(String(15))
-	subcategory = Column(String(64))
-	image = Column(String(64))
+if __name__ == "__main__":
+    main(Base)

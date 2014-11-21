@@ -97,6 +97,7 @@ def gimme_some_deets(id):
     print event
     return event
 
+
 @app.route('/')
 def index():
   return render_template('index.html')
@@ -146,8 +147,19 @@ def login():
       return "worked" # not a list. Just the user object.
     else:
       return "failed"
-    # if thisUser.password == []:
-    #   return "You are not in our records. Please sign up."
+
+@app.route("/savedevent", methods=["POST"])
+def savedEvent():
+    Data = request.data
+    username = session['username']
+    pythonData = json.load(Data)
+    thisUser = model.session.query(model.User).filter_by(username = username).first()
+    event_id = pythonData['id']
+    thisUser.event_id = event_id
+    model.session.add(thisUser)
+    model.session.commit()
+    print thisUser.event_id
+    return "Woot!"
 
 
 if __name__=="__main__":

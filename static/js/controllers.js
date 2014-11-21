@@ -19,30 +19,35 @@ var eventControllers = angular.module('eventControllers', []);
 //     };
 //   }]);
 
-eventControllers.controller('EventListCtrl', ['$scope', '$http',
-  function($scope, $http) {
+eventControllers.controller('EventListCtrl', ['$scope', '$http', "currentUser",
+  function($scope, $http, currentUser) {
     console.log("in events controller");
     $http.get('/api/events').success(function(data) {
       $scope.events = data;
     });
 
     $scope.orderProp = 'title';
+
+    alert(currentUser.username);
+
   }]);
 
-eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
+eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http', 'currentUser', 'eventData',
+  function($scope, $routeParams, $http, currentUser, eventData) {
     $scope.eventId = $routeParams.eventId;
+    $scope.currentUser= currentUser;
     $http.get(
       '/api/eventdetail/' + $routeParams.eventId
       ).success(function(data) {
-        console.log(data);
+        // console.log(data);
         $scope.eventdetail = data;
-
+        $scope.save = function(e) {
+          console.log(e);
+          $http.post('/savedevent', e, currentUser).success (function(data) {
+            console.log("Derp di derp!" + data + currentUser);
+        })}
       });
 
-    $scope.save = function(e, u) {
-      console.log(e, u);
-    }
   }]);
 
 eventControllers.controller('SignupCtrl', ['$scope', '$http',
@@ -73,11 +78,16 @@ eventControllers.controller('SignupCtrl', ['$scope', '$http',
 
 eventControllers.controller('HomeCtrl', []);
 
-eventControllers.controller('LoginCtrl', ['$scope', '$http',
-  function ($scope, $http){
+eventControllers.controller('LoginCtrl', ['$scope', '$http', 'currentUser',
+  function ($scope, $http, currentUser){
+
     console.log('in login');
 
+    // $scope.currentUser = currentUser;
+    // $scope.currentUser = {'username': ''}
+
   $scope.login = function (u) {
+
     $http.post('/login', u).success(
       function(data) {
         console.log("whatup");
@@ -86,6 +96,7 @@ eventControllers.controller('LoginCtrl', ['$scope', '$http',
           alert("Please enter correct password");
         }else {
           alert("Thank you for logging in!");
+          currentUser.username = u.username;
         }
       }
       );
