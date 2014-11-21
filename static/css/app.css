@@ -79,10 +79,11 @@ ul.specs {
   list-style: none;
 }
 
-ul.specs > li{
-  display: inline-block;
-  width: 200px;
+div#details > p{
+  display: inline;
   vertical-align: top;
+  font-weight: bold;
+
 }
 
 ul.specs > li > span{
@@ -98,10 +99,12 @@ h1 {
   border-bottom: 1px solid gray;
 }
 
-.homebtns {
+.inlinebtns {
   display: inline-block;
 }
-
+.details{
+  display: inline;
+}
 .username.ng-valid {
  background-color: green;
 }

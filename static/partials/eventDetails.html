@@ -1,9 +1,24 @@
 
- <button
+
+
   <div ng-controller="EventListCtrl as ctrl">
-
-    <a href="#/events"><button class="btn">Event List<button></a>
-
+    <img ng-src="static/images/{{eventdetail.image}}">
   </div>
+
 <h1>{{eventdetail.title}}</h1>
-Date : {{'2015-10-31' | date: 'medium'}}
+
+<div id="details">
+  <p>Date</p>
+  <p>{{eventdetail.date | date}}</p>
+  <p>Time </p>
+  <p>{{eventdetail.start_time}} - {{eventdetail.end_time}}</p>
+  <p>Venue </p>
+  <p>{{eventdetail.venue}}</p>
+</div><br>
+<div ng-bind="eventdetail.description"></div><br>
+<b><a href="{{eventdetail.url}}">{{eventdetail.url}}</a>
+<form class="inlinebtns" ng-submit="save(eventdetail, user)">
+  <!-- <input type="text" ng-model="user.username">  -->
+  <button class="btn" type="submit">SAVE</button>
+  <button class="btn" type="submit">SHARE</button>
+</form>

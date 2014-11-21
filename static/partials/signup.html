@@ -1,4 +1,4 @@
-<div><a href="#/events"><button class="btn">Event List</button></a></div>
+
 <div ng-controller = "SignupCtrl">
 	<form novalidate role="form" ng-model="user" ng-submit= 'submit(user)' name="myForm">
 		<div class ="form-group">
@@ -27,7 +27,7 @@
 			ng-model="user.password"
 			required />
 		</div>
-		<div class="homebtns">
+		<div class="inlinebtns">
 			<button class="btn" ng-click="reset()">RESET</button>
 			<button class="btn" type="submit">SAVE</button>
 		</div>

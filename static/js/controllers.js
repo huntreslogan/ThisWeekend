@@ -37,7 +37,12 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
       ).success(function(data) {
         console.log(data);
         $scope.eventdetail = data;
+
       });
+
+    $scope.save = function(e, u) {
+      console.log(e, u);
+    }
   }]);
 
 eventControllers.controller('SignupCtrl', ['$scope', '$http',
@@ -89,4 +94,6 @@ eventControllers.controller('LoginCtrl', ['$scope', '$http',
   }
 
   ]);
+
+
 
