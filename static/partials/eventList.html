@@ -1,30 +1,34 @@
 <div class="container-fluid menu" ng-controller="EventListCtrl">
-<div class="row">
-  <div class="col-md-2">
-    <!--Sidebar content-->
+  <div class="row">
+    <div class="col-md-10 select" >
+      <!--Sidebar content-->
+        <div>
+          <span><b>Narrow results: </b></span>
+          <input placeholder="Keyword, venue, title..." ng-model="query" />
+        </div>
+        <div id="floater">
+          <span class="sort"><b>Sort by: </b></span>
+          <select class="inline" ng-model="orderProp">
+            <option value="title">Alphabetical</option>
+            <option value="date">Newest</option>
+            <option value="price">Price</option>
+          </select>
+        </div>
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
 
-    Search: <input ng-model="query">
-    Sort by:
-    <select ng-model="orderProp">
-      <option value="title">Alphabetical</option>
-      <option value="date">Newest</option>
-    </select>
+      <ul class="events">
+        <li ng-repeat="event in events | filter:query | orderBy:orderProp" class="thumbnail">
+          <a href="#/eventdetail/{{event.id}}" style="background-image: url(/static/images/{{event.image}})"class="thumb">
+          <!-- <img ng-src="/static/images/{{event.image}}"> -->
+          </a>
+          <a href="#/eventdetail/{{event.id}}">{{event.title}}</a>
+          <p>{{event.venue}}</p>
+        </li>
+      </ul>
 
+    </div>
   </div>
-  <div class="col-md-10">
-    <!--Body content-->
-
-    <ul class="events">
-      <li ng-repeat="event in events | filter:query track by event.id | orderBy:orderProp" class="thumbnail">
-        <a href="#/eventdetail/{{event.id}}" style="background-image: url(/static/images/{{event.image}})"class="thumb">
-        <!-- <img ng-src="/static/images/{{event.image}}"> -->
-        </a>
-        <a href="#/eventdetail/{{event.id}}">{{event.title}}</a>
-        <p>{{event.venue}}</p>
-      </li>
-    </ul>
-
-  </div>
-</div>
 </div>
 

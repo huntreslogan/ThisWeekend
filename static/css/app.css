@@ -13,11 +13,28 @@ body {
   position: relative;
   float: left;
 }
+span.inline {
+  display: inline-block;
+}
+div.select > div {
+  display: inline-block;
+}
+div.select > div > input {
+  width: 200px;
+  height: 30px;
+  float: right;
+}
 
 .events {
   list-style: none;
 }
-
+div.select {
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+span.sort {
+  margin-left: 10px;
+}
 .thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;
