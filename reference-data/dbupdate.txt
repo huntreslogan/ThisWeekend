@@ -1,0 +1,7 @@
+BEGIN TRANSACTION;
+CREATE TEMPORARY TABLE t1_backup(id,event_type,city,title,date,start_time,end_time,venue,status,url,description,eb_id,price,table_service,image);
+INSERT INTO t1_backup SELECT id,event_type,city,title,date,start_time,end_time,venue,status,url,description,eb_id,price,table_service,image FROM events;
+DROP TABLE events;
+CREATE TABLE events(id,event_type,city,title,date,start_time,end_time,venue,status,url,description,eb_id,price,table_service,image);
+INSERT INTO events SELECT id,event_type,city,title,date,start_time,end_time,venue,status,url,description,eb_id,price,table_service,image FROM t1_backup;
+DROP TABLE t1_backup;

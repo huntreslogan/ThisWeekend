@@ -85,14 +85,14 @@ def serialize(model):
 def json_my_data():
     serialized_events = [
       serialize(event)
-      for event in model.session.query(model.MusicEvent).all()
+      for event in model.session.query(model.Event).all()
     ]
     events = json.dumps(serialized_events, default=handler)
     return events
 
 @app.route("/api/eventdetail/<int:id>")
 def gimme_some_deets(id):
-    serialize_event = serialize(model.session.query(model.MusicEvent).filter_by(id = id).one())
+    serialize_event = serialize(model.session.query(model.Event).filter_by(id = id).one())
     event = json.dumps(serialize_event, default=handler)
     print event
     return event
@@ -152,13 +152,15 @@ def login():
 def savedEvent():
     Data = request.data
     username = session['username']
-    pythonData = json.load(Data)
+    pythonData = json.loads(Data)
     thisUser = model.session.query(model.User).filter_by(username = username).first()
     event_id = pythonData['id']
-    thisUser.event_id = event_id
-    model.session.add(thisUser)
+    print (thisUser.username, event_id)
+    user = model.session.query(model.User).filter_by(username = username).one()
+    event = model.session.query(model.Event).filter_by(id = event_id).one()
+    user.events.append(event)
     model.session.commit()
-    print thisUser.event_id
+
     return "Woot!"
 
 

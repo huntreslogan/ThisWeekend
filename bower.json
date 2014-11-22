@@ -1,0 +1,19 @@
+{
+  "name": "ThisWeekend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/huntreslogan/ThisWeekend",
+  "authors": [
+    "Jessica Hunt <huntres@me.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}

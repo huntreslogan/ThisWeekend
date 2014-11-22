@@ -28,12 +28,12 @@ eventControllers.controller('EventListCtrl', ['$scope', '$http', "currentUser",
 
     $scope.orderProp = 'title';
 
-    alert(currentUser.username);
+    // alert(currentUser.username);
 
   }]);
 
-eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http', 'currentUser', 'eventData',
-  function($scope, $routeParams, $http, currentUser, eventData) {
+eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http', 'currentUser',
+  function($scope, $routeParams, $http, currentUser) {
     $scope.eventId = $routeParams.eventId;
     $scope.currentUser= currentUser;
     $http.get(
@@ -60,7 +60,7 @@ eventControllers.controller('SignupCtrl', ['$scope', '$http',
   };
 
   $scope.submit = function(u) {
-    alert("Hix " + u.username);
+    // alert("Hix " + u.username);
     $http.post('/submituser', u).success(
          function(data) {
          console.log("Flask said " + data);
@@ -76,7 +76,9 @@ eventControllers.controller('SignupCtrl', ['$scope', '$http',
 
 ]);
 
-eventControllers.controller('HomeCtrl', []);
+eventControllers.controller('HomeCtrl', [function() {
+  window.location.href = 'http://google.com';
+}] );
 
 eventControllers.controller('LoginCtrl', ['$scope', '$http', 'currentUser',
   function ($scope, $http, currentUser){

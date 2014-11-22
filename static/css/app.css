@@ -24,6 +24,11 @@ body {
   padding-bottom: 1em;
   height: 100px;
   width: 100px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-color: #fc0;
+  border-radius: 50px;
 }
 
 .events li {

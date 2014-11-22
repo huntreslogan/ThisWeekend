@@ -11,8 +11,6 @@ eventServices.factory('currentUser', function () {
 
 
 
-eventServices.factory('eventData', function(){
-  return data;
-})
+
 
 

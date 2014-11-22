@@ -1,2 +1,4 @@
 /env/
 *.pyc
+static/vendor/bootstrap
+static/vendor/jquery
