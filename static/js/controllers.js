@@ -76,9 +76,9 @@ eventControllers.controller('SignupCtrl', ['$scope', '$http',
 
 ]);
 
-eventControllers.controller('HomeCtrl', [function() {
-  window.location.href = 'http://google.com';
-}] );
+// eventControllers.controller('HomeCtrl', [function() {
+//   window.location.href = 'http://google.com';
+// }] );
 
 eventControllers.controller('LoginCtrl', ['$scope', '$http', 'currentUser',
   function ($scope, $http, currentUser){

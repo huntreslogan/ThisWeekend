@@ -1,9 +1,9 @@
 /* app css stylesheet */
 
-body {
-  padding-top: 20px;
-}
 
+body {
+  background-color: #E8E8E8;
+}
 label {
   padding-right: 5px;
 }
@@ -12,8 +12,9 @@ div.row {
   width: 200%;
 }
 
-input {
+input#myradius {
   border-radius: 5px;
+  width: 300px;
 }
 
 form.form-inline {
@@ -22,7 +23,7 @@ form.form-inline {
 
 #sizeit{
   height: 25px;
-  width: 105px;
+  width: 200px;
 }
 .event-images {
   background-color: white;
@@ -35,18 +36,17 @@ form.form-inline {
 span.inline {
   display: inline-block;
 }
-div.select > div {
-  display: inline-block;
-}
-div.select > div > input {
-  width: 200px;
-  height: 30px;
-  float: right;
-}
 
-ul.events {
+
+
+
+ul.events > li{
   list-style: none;
-  width: 80%;
+  width: 20%;
+  height: 200px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 15px;
 }
 
 div.select {
@@ -56,12 +56,16 @@ div.select {
 span.sort {
   margin-left: 10px;
 }
+
+ul > li > a.thumb {
+  margin-left: 50px;
+}
 .thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;
   padding-bottom: 1em;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   overflow: hidden;
   background-position: center;
   background-size: cover;
