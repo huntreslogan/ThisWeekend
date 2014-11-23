@@ -1,20 +1,23 @@
 <div class="container-fluid menu" ng-controller="EventListCtrl">
   <div class="row">
-    <div class="col-md-10 select" >
-      <!--Sidebar content-->
-        <div>
-          <span><b>Narrow results: </b></span>
-          <input placeholder="Keyword, venue, title..." ng-model="query" />
-        </div>
-        <div id="floater">
-          <span class="sort"><b>Sort by: </b></span>
-          <select class="inline" ng-model="orderProp">
-            <option value="title">Alphabetical</option>
-            <option value="date">Newest</option>
-            <option value="price">Price</option>
-          </select>
-        </div>
-    </div>
+
+      <form class="form-inline" role="form">
+          <div class="form-group">
+            <div class="input-group">
+              <label for="searchInput">Narrow results   </label>
+              <input placeholder="Keyword, venue, title..." ng-model="query" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="selectOptions">Sort by </label>
+            <select id="sizeit" class="inline" ng-model="orderProp">
+              <option value="title">Alphabetical</option>
+              <option value="date">Newest</option>
+              <option value="price">Price</option>
+            </select>
+          </div>
+      </form>
+
     <div class="col-md-10">
       <!--Body content-->
 
