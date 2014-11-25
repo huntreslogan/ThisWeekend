@@ -3,6 +3,7 @@
 
 body {
   background-color: #E8E8E8;
+  color: #73787F;
 }
 label {
   padding-right: 5px;
@@ -14,11 +15,28 @@ div.row {
 
 input#myradius {
   border-radius: 5px;
-  width: 300px;
+  width: 325px;
+
 }
 
+#description {
+  width: 50%;
+  font-size: 18px;
+}
 form.form-inline {
   margin-bottom: 15px;
+}
+
+button.pink {
+  background-color: #F670CA;
+  color: #FFB52A;
+  height: 60px;
+  width: 100px;
+  font-size: 18px;
+}
+#url {
+  font-size: 18px;
+  color: #73787F;
 }
 
 #sizeit{
@@ -37,15 +55,19 @@ span.inline {
   display: inline-block;
 }
 
-
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
 
 ul.events > li{
   list-style: none;
-  width: 20%;
-  height: 200px;
-  border-radius: 5px;
-  display: inline-block;
+  width: 50%;
+  height: 350px;
+  border-radius: 10px;
+  float: left;
   margin-right: 15px;
 }
 
@@ -60,12 +82,14 @@ span.sort {
 ul > li > a.thumb {
   margin-left: 50px;
 }
-.thumb {
+a.thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;
   padding-bottom: 1em;
-  height: 150px;
-  width: 150px;
+  padding-left: 100px;
+  margin-top: 10px;
+  height: 275px;
+  width: 275px;
   overflow: hidden;
   background-position: center;
   background-size: cover;
@@ -75,11 +99,7 @@ ul > li > a.thumb {
 form.form-inline {
   margin-left: 55px;
 }
-.events li {
-  clear: both;
-  height: 150px;
-  padding-top: 15px;
-}
+
 
 /** Detail View **/
 img.event {
@@ -91,10 +111,6 @@ img.event {
   height: 400px;
   width: 400px;
   display: none;
-}
-
-img.phone:first-child {
-  display: block;
 }
 
 
@@ -132,9 +148,11 @@ div#details > p{
   display: inline;
   vertical-align: top;
   font-weight: bold;
-
+  font-size: 20px;
 }
-
+ul.nav.navbar-nav >li {
+  display: inline-block;
+}
 ul.specs > li > span{
   font-weight: bold;
   font-size: 1.2em;
@@ -151,9 +169,7 @@ h1 {
 .inlinebtns {
   display: inline-block;
 }
-.details{
-  display: inline;
-}
+
 .username.ng-valid {
  background-color: green;
 }
@@ -164,4 +180,44 @@ background-color: red;
 
 .username.ng-dirty.ng-invalid-minlength {
   background-color: lightpink;
+}
+
+a.eventlink.ng-binding {
+
+  font-size: 30px;
+  color: #73787F;
+  display: inline-block;
+  margin-top:20px;
+  width: 400px;
+}
+#size1 {
+  font-size: 20px;
+}
+#size2 {
+  font-size: 20px;
+   color: #73787F;
+}
+.grey {
+  color: #73787F;;
+}
+
+#detailimg {
+  width: 450px;
+  height: 350px;
+  border-radius: 5px;
+  margin: 40px;
+}
+
+#verticalbar {
+  height: 2000px;
+  position: absolute;
+  width: 250px;
+  background-color: black;
+  margin-left: 950px;
+}
+div.collapse {
+  font-size: 18px;
+}
+a.navbar-brand {
+  font-size: 30px;
 }

@@ -42,9 +42,18 @@
         <li><a href="#/signup">Signup<span class="sr-only">(current)</span></a></li>
         <li><a href="#/login">Log in</a></li>
         <li class="active"><a href="#/events">Search Events</a></li>
+      </ul>
+    </div>
 </nav>
-<div ng-view ng-cloak></div>
-
+<div class="container-fluid menu" ng-controller="EventListCtrl">
+  <div class="row">
+      <div class="col-md-10">
+        <div ng-view ng-cloak></div>
+      </div>
+  </div>
+</div>
+<div class="col-md-2">
+</div>
 
 
   <!-- In production use:

@@ -1,14 +1,17 @@
-<div class="container-fluid menu" ng-controller="EventListCtrl">
-  <div class="row">
+
+
+
+
+      <!--Body content-->
 
       <form class="form-inline" role="form">
           <div class="form-group">
             <div class="input-group">
-              <input id="myradius" class="form-control" placeholder="Keyword, venue, title..." ng-model="query" />
+              <input id="myradius" class="form-control" placeholder="Keyword, mm-dd-yyyy, venue, title..." ng-model="query" />
             </div>
           </div>
           <div class="form-group">
-            <label for="selectOptions">Sort Results </label>
+            <label class="grey" for="selectOptions">Sort Results </label>
             <select id="sizeit" class="inline" ng-model="orderProp">
               <option value="title">Alphabetical</option>
               <option value="date">Newest</option>
@@ -16,21 +19,16 @@
             </select>
           </div>
       </form>
-
-    <div class="col-md-10">
-      <!--Body content-->
-
       <ul class="events">
-        <li ng-repeat="event in events | filter:query | orderBy:orderProp" class="thumbnail">
-          <a href="#/eventdetail/{{event.id}}" style="background-image: url(/static/images/{{event.image}})"class="thumb">
-          <!-- <img ng-src="/static/images/{{event.image}}"> -->
-          </a>
-          <a href="#/eventdetail/{{event.id}}">{{event.title}}</a>
-          <p>{{event.venue}}</p>
-        </li>
+          <li ng-repeat="event in events | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/eventdetail/{{event.id}}" style="background-image: url(/static/images/{{event.image}})"class="thumb">
+            <!-- <img ng-src="/static/images/{{event.image}}"> -->
+            </a>
+            <a class="eventlink" href="#/eventdetail/{{event.id}}">{{event.title}}<br><span id="size1">{{event.venue}}</span></a><br>
+            <br><span id="size2">{{event.date | date}}</span>
+          </li>
       </ul>
 
-    </div>
-  </div>
-</div>
+
+
 

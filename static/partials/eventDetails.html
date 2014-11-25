@@ -2,10 +2,10 @@
 
 
   <div ng-controller="EventListCtrl as ctrl">
-    <img ng-src="static/images/{{eventdetail.image}}">
+    <img id="detailimg" ng-src="static/images/{{eventdetail.image}}">
   </div>
 
-<h1>{{eventdetail.title}}</h1>
+<h1>{{eventdetail.title}}</h1><br>
 
 <div id="details">
   <p>Date</p>
@@ -15,10 +15,14 @@
   <p>Venue </p>
   <p>{{eventdetail.venue}}</p>
 </div><br>
-<div ng-bind="eventdetail.description"></div><br>
-<b><a href="{{eventdetail.url}}">{{eventdetail.url}}</a>
-<form class="inlinebtns" ng-submit="save(eventdetail)">
-  <!-- <input type="text" ng-model="user.username">  -->
-  <button class="btn"type="submit">SAVE</button>
-  <button class="btn" type="submit">SHARE</button>
-</form>
+
+      <div id="description" ng-bind="eventdetail.description"></div><br>
+      <b><a id="url" href="{{eventdetail.url}}">{{eventdetail.url}}</a>
+      <form class="inlinebtns" ng-submit="save(eventdetail)">
+        <!-- <input type="text" ng-model="user.username">  -->
+
+          <button class="btn pink"type="submit">SAVE</button>
+          <button class="btn pink" type="submit">SHARE</button>
+
+      </form>
+
