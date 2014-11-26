@@ -101,7 +101,7 @@ def gimme_some_deets(id):
 @app.route('/')
 def index():
 
-  return render_template('index.html')
+  return render_template('index.html', openbraces="{{", closebraces='}}')
 
 
 @app.route('/submituser', methods=['POST'])
@@ -179,7 +179,20 @@ def modalEvents():
   # return Response(json.dumps(newSaved, default = handler), content_type="application/json")
 
 
-
+@app.route('/shareit', methods=["POST"])
+def shareEvent():
+  Data = request.data
+  print Data
+  pythonData = json.loads(Data)
+  username = pythonData[1]
+  event = pythonData[0]
+  print event
+  event_id = event.get('id')
+  otherUser= model.session.query(model.User).filter_by(username=username).first()
+  event = model.session.query(model.Event).filter_by(id=event_id).one()
+  otherUser.events.append(event)
+  model.session.commit()
+  return "Cracktastic!"
 
 @app.route('/test')
 def test():

@@ -42,10 +42,22 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
         console.log(data);
         $scope.eventdetail = data;
         $scope.save = function(e) {
-          console.log(e);
+          // console.log(e);
           $http.post('/savedevent', e, currentUser).success (function(data) {
             console.log("Derp di derp!" + data + currentUser);
+
         })}
+
+        $scope.share = function(o) {
+            var eventdetail = $scope.eventdetail;
+            console.log(o);
+            console.log(eventdetail);
+            console.log([eventdetail, o]);
+            var sharethis = [eventdetail,o];
+            $http.post('/shareit', sharethis).success(function(data) {
+            console.log('Share some' + data);
+          })
+        }
       });
 
   }]);

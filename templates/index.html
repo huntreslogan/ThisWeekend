@@ -56,11 +56,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Your Events</h4>
+        <h4 style="font-size: 20px"class="modal-title" id="myModalLabel">Your Events</h4>
       </div>
-      <div  ng-model = "firstevent" ng-controller="savedEventCtrl" class="modal-body">
-          <li ng-bind="firstevent.title"></li>
-          <img ng-model="firstevent.image" ng-src="/static/images/{{firstevent.image}}">
+      <div  ng-model = "savedevents" ng-controller="savedEventCtrl" class="modal-body">
+          <li ng-repeat="event in savedevents" class="thumbnail">
+            <img ng-src="/static/images/{{openbraces}}event.image{{closebraces}}">
+            <a href="#/eventdetail/{{openbraces}}event.id{{closebraces}}"><span class="grey" style="font-size: 18px">{{openbraces}}event.title{{closebraces}}</span></a>
+          </li>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
