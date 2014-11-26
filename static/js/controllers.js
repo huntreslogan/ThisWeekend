@@ -39,7 +39,7 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
     $http.get(
       '/api/eventdetail/' + $routeParams.eventId
       ).success(function(data) {
-        // console.log(data);
+        console.log(data);
         $scope.eventdetail = data;
         $scope.save = function(e) {
           console.log(e);
@@ -98,7 +98,7 @@ eventControllers.controller('LoginCtrl', ['$scope', '$http', 'currentUser',
           alert("Please enter correct password");
         }else {
           alert("Thank you for logging in!");
-          currentUser.username = u.username;
+          $scope.currentUser.username = u.username;
         }
       }
       );
@@ -106,6 +106,33 @@ eventControllers.controller('LoginCtrl', ['$scope', '$http', 'currentUser',
 
   }
 
+  ]);
+
+eventControllers.controller('savedEventCtrl', ['$scope', '$http',
+  function($scope, $http) {
+      $scope.savedevents = [];
+      $http.get('/modalevents').success (function (data) {
+        console.log("in savedEventCtrl");
+        console.log(data);
+        var savedevents = data;
+        $scope.savedevents = savedevents;
+        console.log(savedevents);
+        var firstevent = savedevents[0];
+        $scope.firstevent = firstevent;
+        console.log(firstevent.image);
+        var image = firstevent.image;
+        $scope.image = image;
+
+        // console.log($scope.savedevents[0]);
+        // console.log($scope.onesaved);
+        // console.log(data[0]);
+          // $scope.savedevents = data;
+          // console.log(savedevents);
+          // $scope.oneevent = savedevents[0];
+          // console.log(oneevent);
+      });
+
+  }
   ]);
 
 

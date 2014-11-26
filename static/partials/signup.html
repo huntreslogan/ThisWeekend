@@ -1,6 +1,6 @@
 
 <div ng-controller = "SignupCtrl">
-	<form novalidate role="form" ng-model="user" ng-submit= 'submit(user)' name="myForm">
+	<form class="thisform" novalidate role="form" ng-model="user" ng-submit= 'submit(user)' name="myForm">
 		<div class ="form-group">
 			<label for="uname">Username </label>
 			<input class="form-control"
@@ -28,8 +28,8 @@
 			required />
 		</div>
 		<div class="inlinebtns">
-			<button class="btn" ng-click="reset()">RESET</button>
-			<button class="btn" type="submit">SAVE</button>
+			<button class="btn pink" ng-click="reset()">RESET</button>
+			<button class="btn pink" type="submit">SAVE</button>
 		</div>
 	</form>
 

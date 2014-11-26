@@ -20,13 +20,16 @@
           </div>
       </form>
       <ul class="events">
-          <li ng-repeat="event in events | filter:query | orderBy:orderProp" class="thumbnail">
-            <a href="#/eventdetail/{{event.id}}" style="background-image: url(/static/images/{{event.image}})"class="thumb">
+          <li class="main" ng-repeat="event in events | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/eventdetail/{{event.id}}" style="background-image: url(/static/images/{{event.image}})"class="thumb shadow">
             <!-- <img ng-src="/static/images/{{event.image}}"> -->
             </a>
+
             <a class="eventlink" href="#/eventdetail/{{event.id}}">{{event.title}}<br><span id="size1">{{event.venue}}</span></a><br>
             <br><span id="size2">{{event.date | date}}</span>
+
           </li>
+
       </ul>
 
 

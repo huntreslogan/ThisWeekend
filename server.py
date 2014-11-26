@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, flash, session, jsonify
 import model
 # import os
 import json
-# import jinja2
+
 from sqlalchemy.orm import class_mapper
 
 app = Flask(__name__)
@@ -100,6 +100,7 @@ def gimme_some_deets(id):
 
 @app.route('/')
 def index():
+
   return render_template('index.html')
 
 
@@ -151,7 +152,7 @@ def login():
 @app.route("/savedevent", methods=["POST"])
 def savedEvent():
     Data = request.data
-    username = session['username']
+    username = session.get('username')
     pythonData = json.loads(Data)
     thisUser = model.session.query(model.User).filter_by(username = username).first()
     event_id = pythonData['id']
@@ -163,8 +164,31 @@ def savedEvent():
 
     return "Woot!"
 
+@app.route("/modalevents")
+def modalEvents():
+  username = session.get('username')
+  print username
+  thisUser = model.session.query(model.User).filter_by(username = username).first()
+  savedevents = thisUser.events
+  newSaved = []
+  for event in savedevents:
+    newEvent = serialize(event)
+    newSaved.append(newEvent)
+
+  return json.dumps(newSaved, default = handler)
+  # return Response(json.dumps(newSaved, default = handler), content_type="application/json")
+
+
+
+
+@app.route('/test')
+def test():
+  return "Hi this is the session: " + str(session)
+  # user = model.session.query(model.User).filter_by(username=username).first()
+  # print user.events
 
 if __name__=="__main__":
     # json_my_data()
     # gimme_some_deets(2)
+    # test()
     app.run(debug=True)

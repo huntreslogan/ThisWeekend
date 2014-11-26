@@ -4,14 +4,16 @@
 body {
   background-color: #E8E8E8;
   color: #73787F;
+
 }
 label {
   padding-right: 5px;
 }
 
-div.row {
-  width: 200%;
+.navbar.navbar-inverse {
+  width: 1229px;
 }
+
 
 input#myradius {
   border-radius: 5px;
@@ -20,7 +22,7 @@ input#myradius {
 }
 
 #description {
-  width: 50%;
+  width: 100%;
   font-size: 18px;
 }
 form.form-inline {
@@ -30,12 +32,12 @@ form.form-inline {
 button.pink {
   background-color: #F670CA;
   color: #FFB52A;
-  height: 60px;
-  width: 100px;
+  height: 54px;
+  width: 86px;
   font-size: 18px;
 }
 #url {
-  font-size: 18px;
+  font-size: 16px;
   color: #73787F;
 }
 
@@ -64,12 +66,15 @@ ul {
 
 ul.events > li{
   list-style: none;
-  width: 50%;
+  width: 100%;
   height: 350px;
   border-radius: 10px;
-  float: left;
+  /*float: left;*/
+  display: inline-block;
+
   margin-right: 15px;
 }
+
 
 div.select {
   margin-left: 40px;
@@ -82,6 +87,7 @@ span.sort {
 ul > li > a.thumb {
   margin-left: 50px;
 }
+
 a.thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;
@@ -162,9 +168,7 @@ ul.specs dt {
   font-weight: bold;
 }
 
-h1 {
-  border-bottom: 1px solid gray;
-}
+
 
 .inlinebtns {
   display: inline-block;
@@ -173,7 +177,12 @@ h1 {
 .username.ng-valid {
  background-color: green;
 }
-
+.black {
+  background-color: black;
+  height: 50px;
+  color: white;
+  font-size: 18px;
+}
 .username.ng-dirty.ng-invalid-required {
 background-color: red;
 }
@@ -184,11 +193,13 @@ background-color: red;
 
 a.eventlink.ng-binding {
 
-  font-size: 30px;
+  font-size: 40px;
   color: #73787F;
   display: inline-block;
   margin-top:20px;
-  width: 400px;
+  width: 600px;
+  margin-left: 100px;
+
 }
 #size1 {
   font-size: 20px;
@@ -196,28 +207,39 @@ a.eventlink.ng-binding {
 #size2 {
   font-size: 20px;
    color: #73787F;
+   margin-left: 100px;
 }
 .grey {
   color: #73787F;;
 }
-
+form.thisform {
+  width: 25%;
+}
+.shadow {
+   -moz-box-shadow:    3px 5px 6px #73787F;
+  -webkit-box-shadow: 3px 5px 6px #73787F;
+  box-shadow:         3px 5px 12px #73787F;
+}
 #detailimg {
-  width: 450px;
+  width: 400px;
   height: 350px;
   border-radius: 5px;
   margin: 40px;
+  -moz-box-shadow:    3px 5px 6px #73787F;
+  -webkit-box-shadow: 3px 5px 6px #73787F;
+  box-shadow:         3px 5px 12px #73787F;
 }
 
-#verticalbar {
-  height: 2000px;
-  position: absolute;
-  width: 250px;
-  background-color: black;
-  margin-left: 950px;
+div.row {
+  width: 1259px;
 }
 div.collapse {
   font-size: 18px;
 }
 a.navbar-brand {
-  font-size: 30px;
+  font-size: 40px;
+
+}
+#pinkit {
+   color: #F670CA;
 }
