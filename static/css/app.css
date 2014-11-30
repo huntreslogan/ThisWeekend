@@ -20,13 +20,16 @@ input#myradius {
   width: 325px;
 
 }
-
+#moveit {
+  margin-left: 100px;
+}
 #description {
   width: 100%;
   font-size: 18px;
 }
 form.form-inline {
   margin-bottom: 15px;
+  margin-left: 100px;
 }
 
 button.pink {
@@ -86,7 +89,7 @@ span.sort {
 }
 
 ul > li > a.thumb {
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 a.thumb {
@@ -206,9 +209,9 @@ a.eventlink.ng-binding {
   font-size: 40px;
   color: #73787F;
   display: inline-block;
-  margin-top:20px;
+
   width: 600px;
-  margin-left: 100px;
+  margin-left: 150px;
 
 }
 #size1 {
@@ -217,7 +220,7 @@ a.eventlink.ng-binding {
 #size2 {
   font-size: 20px;
    color: #73787F;
-   margin-left: 100px;
+   margin-left: 150px;
 }
 .grey {
   color: #73787F;;
@@ -229,6 +232,7 @@ form.thisform {
    -moz-box-shadow:    3px 5px 6px #73787F;
   -webkit-box-shadow: 3px 5px 6px #73787F;
   box-shadow:         3px 5px 12px #73787F;
+
 }
 #detailimg {
   width: 400px;
@@ -252,4 +256,5 @@ a.navbar-brand {
 }
 #pinkit {
    color: #F670CA;
+   margin-left: 75px;
 }
