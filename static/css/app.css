@@ -36,9 +36,10 @@ button.pink {
   width: 86px;
   font-size: 18px;
 }
-#url {
-  font-size: 16px;
-  color: #73787F;
+#thisurl {
+  font-size: 18px;
+  color: #520335;
+
 }
 
 #sizeit{
@@ -151,7 +152,7 @@ ul.specs {
 }
 #bigdiv {
   margin: 0;
-  width: 800px;
+  width: 1000px;
 }
 div#details > p{
   /*display: inline;*/
@@ -161,8 +162,10 @@ div#details > p{
 }
 #details {
   float: right;
-  margin-top: 30px;
+  width: 500px;
+
 }
+
 ul.nav.navbar-nav >li {
   display: inline-block;
 }

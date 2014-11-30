@@ -4,6 +4,7 @@
   <div ng-controller="EventListCtrl" id="bigdiv">
     <img id="detailimg" class="shadow" ng-src="static/images/{{eventdetail.image}}">
     <div id="details">
+        <h1>{{eventdetail.title}}</h1>
         <h3>Date: </h3>
         <p>{{eventdetail.date | date}}</p>
         <h3>Time: </h3>
@@ -15,23 +16,11 @@
     </div>
   </div>
 
-<h1>{{eventdetail.title}}</h1><br>
-
-<!-- <div id="details">
-  <p>Date: </p>
-  <p>{{eventdetail.date | date}}</p>
-  <p>Time: </p>
-  <p>{{eventdetail.start_time}} - {{eventdetail.end_time}}</p>
-  <p>Venue: </p>
-  <p>{{eventdetail.venue}}</p>
-  <p>Price: </p>
-  <p>{{eventdetail.price}}</p>
-</div> --><br>
-
-      <div id="description" ng-bind="eventdetail.description"></div><br>
-      <b><a id="url" href="{{eventdetail.url}}">{{eventdetail.url}}</a>
+      <br><div id="description">{{eventdetail.description}}
+        <a id="thisurl" href="{{eventdetail.url}}">Buy Tickets Here!</a>
+      </div><br>
       <form class="inlinebtns" ng-submit="save(eventdetail)">
-        <!-- <input type="text" ng-model="user.username">  -->
+
 
           <button class="btn pink"type="submit">SAVE</button>
       </form>
