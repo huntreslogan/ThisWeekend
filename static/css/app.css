@@ -149,12 +149,19 @@ ul.specs {
   padding: 0;
   list-style: none;
 }
-
+#bigdiv {
+  margin: 0;
+  width: 800px;
+}
 div#details > p{
-  display: inline;
+  /*display: inline;*/
   vertical-align: top;
   font-weight: bold;
   font-size: 20px;
+}
+#details {
+  float: right;
+  margin-top: 30px;
 }
 ul.nav.navbar-nav >li {
   display: inline-block;

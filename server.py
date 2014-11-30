@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, flash, session, jsonify
-# from flask.ext.cors import CORS
-# import eventbrite
+from flask.ext.cors import CORS
+import eventbrite
 import model
-# import os
+import os
 import json
 
 from sqlalchemy.orm import class_mapper
@@ -10,59 +10,51 @@ from sqlalchemy.orm import class_mapper
 app = Flask(__name__)
 app.secret_key = "djakljdfgahgfoahufha"
 
-# cors = CORS(app)
+cors = CORS(app)
 
-# @app.route("/events")
-# def events():
-    # return "<html><script> var eventstring = '" + json.dumps(apicall()) + "';alert(eventstring);</script></html>"
-    # return json.dumps(apicall())
+#
 
-# @app.route("/")
-# def index():
+def apicall(maxresults = 100, page = 1):
+    if page > 1:
+        return
+    auth_tokens = {'app_key':  os.environ['app_key'],
+                      'user_key': os.environ['user_key']}
+    client = eventbrite.EventbriteClient(auth_tokens)
 
-#   return render_template("index.html")
+    # categories=["music", "visual & performing arts", "food & drink", "fashion & beauty", "film, media & entertainment"]
+    # for category in categories:
+    response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
+    rendered_events = []
+    # print response
+    events = response['events']
 
-# def apicall(maxresults = 10, page = 1):
-#     if page > 1:
-#         return
-#     auth_tokens = {'app_key':  os.environ['app_key'],
-#                       'user_key': os.environ['user_key']}
-#     client = eventbrite.EventbriteClient(auth_tokens)
+    for i in range(len(events)):
+        if "event" in events[i]:
+            event = events[i]["event"]
 
-#     # categories=["music", "visual & performing arts", "food & drink", "fashion & beauty", "film, media & entertainment"]
-#     # for category in categories:
-#     response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
-#     rendered_events = []
-#     # print response
-#     events = response['events']
+            row = [event['title'], event['id'],event["status"],event["url"], event['venue']['name'], event["description"]]
+            rendered_events.append(row)
 
-#     for i in range(len(events)):
-#         if "event" in events[i]:
-#             event = events[i]["event"]
+            print "\n"
+            if "tickets" in event:
+                tickets = event["tickets"]
+                for j in range(len(tickets)):
 
-#             row = [event['title'], event['id'],event["status"],event["url"], event['venue']['name'], event["description"]]
-#             rendered_events.append(row)
-
-#             print "\n"
-#             # if "tickets" in event:
-#             #     tickets = event["tickets"]
-#             #     for j in range(len(tickets)):
-
-#                     # ticket_list = [tickets[j]["ticket"]]
-#                     # rendered_events.append(ticket_list)
-#             #     #pass
-#             # # print events[i]["event"]["title"]
-#             # print "\n"
-#         else :
-#             total_items = events[i]["summary"]["total_items"]
-#             if (maxresults * page) < total_items:
-#                 next_page = page + 1
-#                 print "NEED TO CALL AGAIN!"
-#                 apicall(page = next_page)
-#             else:
-#                 print "GOT ALL THE STUFF!"
-
-#     return rendered_events
+                    ticket_list = [tickets[j]["ticket"]]
+                    rendered_events.append(ticket_list)
+                #pass
+            # print events[i]["event"]["title"]
+            print "\n"
+        else :
+            total_items = events[i]["summary"]["total_items"]
+            if (maxresults * page) < total_items:
+                next_page = page + 1
+                print "NEED TO CALL AGAIN!"
+                apicall(page = next_page)
+            else:
+                print "GOT ALL THE STUFF!"
+    print rendered_events
+    return rendered_events
 
 
 def handler(o):
@@ -192,7 +184,7 @@ def shareEvent():
   event = model.session.query(model.Event).filter_by(id=event_id).one()
   otherUser.events.append(event)
   model.session.commit()
-  return "Cracktastic!"
+  return "Yay for data!"
 
 @app.route('/test')
 def test():
@@ -201,7 +193,5 @@ def test():
   # print user.events
 
 if __name__=="__main__":
-    # json_my_data()
-    # gimme_some_deets(2)
-    # test()
+    apicall()
     app.run(debug=True)
