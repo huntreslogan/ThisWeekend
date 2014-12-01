@@ -26,7 +26,7 @@ eventControllers.controller('EventListCtrl', ['$scope', '$http', "currentUser",
       $scope.events = data;
     });
 
-    $scope.orderProp = 'title';
+    $scope.orderProp = 'date';
 
     // alert(currentUser.username);
 
@@ -44,7 +44,7 @@ eventControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', '$http
         $scope.save = function(e) {
           // console.log(e);
           $http.post('/savedevent', e, currentUser).success (function(data) {
-            console.log("Derp di derp!" + data + currentUser);
+            console.log("Awesome " + data + currentUser);
 
         })}
 

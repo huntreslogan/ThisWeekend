@@ -32,9 +32,9 @@ form.form-inline {
   margin-left: 100px;
 }
 
-button.pink {
-  background-color: #F670CA;
-  color: #FFB52A;
+button.blue {
+  background-color: #6495ED;
+  color: white;
   height: 54px;
   width: 86px;
   font-size: 18px;
@@ -103,7 +103,7 @@ a.thumb {
   overflow: hidden;
   background-position: center;
   background-size: cover;
-  background-color: #fc0;
+  background-color: white;
   border-radius: 50px;
 }
 form.form-inline {
@@ -209,9 +209,9 @@ a.eventlink.ng-binding {
   font-size: 40px;
   color: #73787F;
   display: inline-block;
-
+  margin-top: 10px;
   width: 600px;
-  margin-left: 150px;
+  margin-left: 100px;
 
 }
 #size1 {
@@ -220,7 +220,7 @@ a.eventlink.ng-binding {
 #size2 {
   font-size: 20px;
    color: #73787F;
-   margin-left: 150px;
+   margin-left: 100px;
 }
 .grey {
   color: #73787F;;
@@ -254,7 +254,7 @@ a.navbar-brand {
   font-size: 40px;
 
 }
-#pinkit {
-   color: #F670CA;
+#blueit {
+   color: #6495ED;
    margin-left: 75px;
 }

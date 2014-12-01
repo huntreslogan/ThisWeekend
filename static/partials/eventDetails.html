@@ -17,15 +17,15 @@
   </div>
 
       <br><div id="description">{{eventdetail.description}}
-        <a id="thisurl" href="{{eventdetail.url}}">Buy Tickets Here!</a>
+        <a id="thisurl" target="_blank" href="{{eventdetail.url}}">Buy Tickets Here!</a>
       </div><br>
       <form class="inlinebtns" ng-submit="save(eventdetail)">
 
 
-          <button class="btn pink"type="submit">SAVE</button>
+          <button class="btn blue"type="submit">SAVE</button>
       </form>
       <form class="inlinebtns">
-          <button data-toggle="modal" data-target="#thisModal" class="btn pink" type="submit">SHARE</button>
+          <button data-toggle="modal" data-target="#thisModal" class="btn blue" type="submit">SHARE</button>
 
       </form>
 <div  class="modal fade" id="thisModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
