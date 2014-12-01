@@ -41,7 +41,7 @@ button.blue {
 }
 #thisurl {
   font-size: 18px;
-  color: #520335;
+  color: #157DEC;
 
 }
 
@@ -222,6 +222,11 @@ a.eventlink.ng-binding {
    color: #73787F;
    margin-left: 100px;
 }
+#size3 {
+  font-size: 20px;
+   color: #73787F;
+   margin-left: 100px;
+}
 .grey {
   color: #73787F;;
 }
@@ -238,6 +243,7 @@ form.thisform {
   width: 400px;
   height: 350px;
   border-radius: 5px;
+  background-color: white;
   margin: 40px;
   -moz-box-shadow:    3px 5px 6px #73787F;
   -webkit-box-shadow: 3px 5px 6px #73787F;
