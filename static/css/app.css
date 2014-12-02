@@ -271,3 +271,7 @@ a.navbar-brand {
    color: #6495ED;
    margin-left: 75px;
 }
+#thumbsize {
+  width: 225px;
+  height: 200px;
+}

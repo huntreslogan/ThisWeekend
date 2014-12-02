@@ -62,12 +62,12 @@
       </div>
       <div  ng-model = "savedevents" ng-controller="savedEventCtrl" class="modal-body">
           <li ng-repeat="event in savedevents" class="thumbnail">
-            <img ng-src="/static/images/{{openbraces}}event.image{{closebraces}}">
+            <img ng-src="/static/images/{{openbraces}}event.image{{closebraces}}"  id="thumbsize">
             <a href="#/eventdetail/{{openbraces}}event.id{{closebraces}}"><span class="grey" style="font-size: 18px">{{openbraces}}event.title{{closebraces}}</span></a>
           </li>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default blue" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

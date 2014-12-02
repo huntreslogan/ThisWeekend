@@ -104,12 +104,11 @@ eventControllers.controller('LoginCtrl', ['$scope', '$http', 'currentUser',
 
     $http.post('/login', u).success(
       function(data) {
-        console.log("whatup");
-        alert("Welcome " + u.username);
+        console.log("login");
         if (data == "Please enter correct password") {
-          alert("Please enter correct password");
+         console.log("Needs correct password");
         }else {
-          alert("Thank you for logging in!");
+          console.log("Got correct password");
           $scope.currentUser.username = u.username;
         }
       }

@@ -1,7 +1,34 @@
 Readme
 ======
 
-Coming Soon
+Overview
+========
+
+This Weekend is an event search application using data from Eventbrite and AngularJS with a focus on providing both performance and accuracy in returning results. It was inspired by Eventbrite's goal to produce a user friendly, household product for customers searching for events as opposed to organizing them.
+
+Features
+========
+
+<h4>Users can: </h4>
+<ul>
+<li>Log-in/logout and sign-in to their account</li>
+<li>Query a list of events with keywords, dates, venues etc.</li>
+<li>Order their results by date or alphabet</li>
+<li>Select events to see their details</li>
+<li>Save events to view later</li>
+<li>Share events with other users</li>
+</ul>
+
+Technologies and Stack
+======================
+
+<h4>Front-end</h4>
+
+AngularJS framework, CSS, HTML, Twitter Bootstrap
+
+<h4>Back-end</h4>
+
+Python, SQLALchemy, Sqlite, Flask, Eventbrite API
 
 ### Installation
 
