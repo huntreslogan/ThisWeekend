@@ -11,9 +11,11 @@ label {
 }
 
 .navbar.navbar-inverse {
-  width: 1229px;
+  width: 1260px;
 }
-
+#left {
+  margin-left: 310px;
+}
 
 input#myradius {
   border-radius: 5px;
@@ -209,10 +211,13 @@ a.eventlink.ng-binding {
   font-size: 40px;
   color: #73787F;
   display: inline-block;
-  margin-top: 10px;
+  margin-top:;
   width: 600px;
   margin-left: 100px;
 
+}
+#logout {
+  float: right;
 }
 #size1 {
   font-size: 20px;
@@ -232,6 +237,7 @@ a.eventlink.ng-binding {
 }
 form.thisform {
   width: 25%;
+  margin-left: 35%;
 }
 .shadow {
    -moz-box-shadow:    3px 5px 6px #73787F;
@@ -244,6 +250,7 @@ form.thisform {
   height: 350px;
   border-radius: 5px;
   background-color: white;
+
   margin: 40px;
   -moz-box-shadow:    3px 5px 6px #73787F;
   -webkit-box-shadow: 3px 5px 6px #73787F;
