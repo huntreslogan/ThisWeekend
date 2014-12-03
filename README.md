@@ -24,9 +24,9 @@ Event List and Search
 
 Users can easily search for events in San Francisco and filter their results with keywords, venue name, title, or date. They can also use an option selector to either order their results by date or alphabetically. This Weekend uses Angular’s ng-repeat directive to repeat each event in the view with uniform styling provided by custom CSS and Bootstrap. Results are filtered using a ‘query’ filter and an ‘order by’ filter. 
 
-The query filter allows users to quickly filter the list of events displayed in the view. The view is then instantly updated with a filtered list of events related to their query thanks to the use of AngularJS and it's two-way binding of the model to the view. The user can then order their results by date or alphabetically with the order selector. Once the user sees an event they are interested in they can click the title, which then changes the view to display an event details page.<br>  
+The query filter allows users to quickly filter the list of events displayed in the view. The view is then instantly updated with a filtered list of events related to their query thanks to the use of AngularJS and it's two-way binding of the model to the view. The user can then order their results by date or alphabetically with the order selector. Once the user sees an event they are interested in they can click the title, which then changes the view to display an event details page.  
 
-<img src="screenshots/eventlist.jpg" width="100%">
+<br><img src="screenshots/eventlist.jpg" width="100%">
 
 Event Detail View
 =================
@@ -35,18 +35,18 @@ The event detail view gives more information about each event and contains two a
 
 If the user decides to save an event, the current event is added to a list contained in a database so that each user's events can be viewed once they have logged in. 
 
-When a user decides to share an event, a modal appears in the view that prompts them to enter a username of the user they wish to share with. Once that username is entered, the event is added to that user's list of saved events.<br> 
+When a user decides to share an event, a modal appears in the view that prompts them to enter a username of the user they wish to share with. Once that username is entered, the event is added to that user's list of saved events. 
 
-<img src="screenshots/eventdetail.jpg" width="100%">
+<br><img src="screenshots/eventdetail.jpg" width="100%">
 
 Saved Events
 ============
 
 Below is the display of saved events that can be accessed by selecting the Saved Events option in the navigation bar. 
 
-Once a user clicks that option a Bootstrap modal is displayed with a list of their events, which was created with the AngularJS ng-repeat directive and custom CSS styling.<br>
+Once a user clicks that option a Bootstrap modal is displayed with a list of their events, which was created with the AngularJS ng-repeat directive and custom CSS styling.
 
-<img src="screenshots/savedevents.jpg" width="100%">
+<br><img src="screenshots/savedevents.jpg" width="100%">
 
 Technologies and Stack
 ======================
