@@ -27,7 +27,7 @@ Event List View
 Event Detail View
 =================
 
-<img src="screenshots/eventdetails.jpg" width="100%">
+<img src="screenshots/eventdetail.jpg" width="100%">
 
 Saved Events
 ============
