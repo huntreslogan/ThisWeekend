@@ -19,6 +19,21 @@ Features
 <li>Share events with other users</li>
 </ul>
 
+Event List View
+===============
+
+<img src="screenshots/eventlist.jpg" width="100%">
+
+Event Detail View
+=================
+
+<img src="screenshots/eventdetails.jpg" width="100%">
+
+Saved Events
+============
+
+<img src="screenshots/savedevents.jpg" width="100%>"
+
 Technologies and Stack
 ======================
 
