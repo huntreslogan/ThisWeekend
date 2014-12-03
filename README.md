@@ -32,7 +32,7 @@ Event Detail View
 Saved Events
 ============
 
-<img src="screenshots/savedevents.jpg" width="100%>"
+<img src="screenshots/savedevents.jpg" width="100%>">
 
 Technologies and Stack
 ======================
