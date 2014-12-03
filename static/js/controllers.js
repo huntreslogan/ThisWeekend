@@ -134,13 +134,6 @@ eventControllers.controller('savedEventCtrl', ['$scope', '$http',
         var image = firstevent.image;
         $scope.image = image;
 
-        // console.log($scope.savedevents[0]);
-        // console.log($scope.onesaved);
-        // console.log(data[0]);
-          // $scope.savedevents = data;
-          // console.log(savedevents);
-          // $scope.oneevent = savedevents[0];
-          // console.log(oneevent);
       });
 
   }

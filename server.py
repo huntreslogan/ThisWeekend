@@ -21,11 +21,9 @@ def apicall(maxresults = 100, page = 1):
                       'user_key': os.environ['user_key']}
     client = eventbrite.EventbriteClient(auth_tokens)
 
-    # categories=["music", "visual & performing arts", "food & drink", "fashion & beauty", "film, media & entertainment"]
-    # for category in categories:
+
     response = client.event_search({"city":"San Francisco","category":"music", "max": maxresults, "page": page})
     rendered_events = []
-    # print response
     events = response['events']
 
     for i in range(len(events)):
@@ -42,8 +40,6 @@ def apicall(maxresults = 100, page = 1):
 
                     ticket_list = [tickets[j]["ticket"]]
                     rendered_events.append(ticket_list)
-                #pass
-            # print events[i]["event"]["title"]
             print "\n"
         else :
             total_items = events[i]["summary"]["total_items"]
@@ -137,7 +133,7 @@ def login():
       return "Thank you for logging in!"
 
     if thisUser:
-      return "worked" # not a list. Just the user object.
+      return "worked"
     else:
       return "failed"
 
@@ -186,11 +182,7 @@ def shareEvent():
   model.session.commit()
   return "Yay for data!"
 
-@app.route('/test')
-def test():
-  return "Hi this is the session: " + str(session)
-  # user = model.session.query(model.User).filter_by(username=username).first()
-  # print user.events
+
 
 if __name__=="__main__":
     apicall()
